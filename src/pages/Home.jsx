@@ -32,7 +32,7 @@ function Home() {
             <input
               type="text"
               aria-label="Search products"
-              placeholder="Try “olive sofa under 70,000”"
+              placeholder="Try “olive sofa” or “woven basket”"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />

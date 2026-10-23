@@ -1,0 +1,138 @@
+.hero {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  background-color: var(--pipe);
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--cream);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(40 12 2 / 0.8) 0%,
+    rgb(40 12 2 / 0.6) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rusk);
+}
+
+.hero h1 {
+  max-width: 14ch;
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.hero h1 em {
+  color: var(--sage);
+}
+
+.hero-text {
+  margin-top: 24px;
+  max-width: 34rem;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgb(247 243 235 / 0.8);
+}
+
+.hero-search {
+  margin-top: 36px;
+  max-width: 40rem;
+  display: flex;
+  background: var(--cream);
+  padding: 8px;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.25);
+}
+
+.hero-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--pipe);
+}
+
+.hero-search input::placeholder {
+  color: rgb(94 24 3 / 0.45);
+}
+
+.hero-search button {
+  padding: 14px 24px;
+  border: none;
+  background: var(--pipe);
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.hero-search button:hover {
+  background: var(--sage);
+}
+
+.hero-popular {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(247 243 235 / 0.65);
+}
+
+.hero-popular a {
+  border-bottom: 1px solid rgb(247 243 235 / 0.35);
+}
+
+@media (min-width: 640px) {
+  .hero-content {
+    padding: 80px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 720px;
+  }
+  .hero-content {
+    padding: 96px 48px;
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgb(40 12 2 / 0.85) 0%,
+      rgb(40 12 2 / 0.55) 50%,
+      rgb(40 12 2 / 0.2) 100%
+    );
+  }
+}

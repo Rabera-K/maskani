@@ -1,0 +1,27 @@
+:root {
+  --pipe: #5e1803;
+  --sage: #788176;
+  --rusk: #ccb999;
+  --cream: #f7f3eb;
+
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "Instrument Serif", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--pipe);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}

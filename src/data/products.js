@@ -1,7 +1,15 @@
 export const categories = [
-  { value: "sofas-seating", label: "Sofas & Seating" },
-  { value: "rugs-mats", label: "Rugs & Mats" },
-  { value: "decor-accessories", label: "Décor & Accessories" },
+  {
+    value: "sofas-seating",
+    label: "Sofas & Seating",
+    image: "sofas-seating.jpg",
+  },
+  { value: "rugs-mats", label: "Rugs & Mats", image: "rugs-mats.jpg" },
+  {
+    value: "decor-accessories",
+    label: "Décor & Accessories",
+    image: "decor-accessories.jpg",
+  },
 ];
 
 // Every supplier, phone number and price below is MADE UP for testing.

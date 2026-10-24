@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ProductImage({ file, alt, className = "" }) {
+function ProductImage({ file, alt, className = "", folder = "products" }) {
   const [failed, setFailed] = useState(!file);
 
   if (failed) {
@@ -17,7 +17,7 @@ function ProductImage({ file, alt, className = "" }) {
 
   return (
     <img
-      src={`/images/products/${file}`}
+      src={`/images/${folder}/${file}`}
       alt={alt}
       className={className}
       loading="lazy"

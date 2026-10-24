@@ -19,3 +19,11 @@ export const availabilityLabels = {
   limited: "Limited stock",
   "made-to-order": "Made to order",
 };
+export function toTelLink(phone) {
+  // 0700000001 -> tel:+254700000001
+  return "tel:+254" + phone.replace(/\s/g, "").replace(/^0/, "");
+}
+
+export function whatsappLink(number, message) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}

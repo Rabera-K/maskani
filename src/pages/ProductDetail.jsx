@@ -99,14 +99,11 @@ function ProductDetail() {
             </p>
           )}
 
-          <div className="detail-badges">
-            {product.listingReviewed && (
-              <span className="badge">Reviewed listing</span>
-            )}
-            {isVerified(supplier) && (
+          {isVerified(supplier) && (
+            <div className="detail-badges">
               <span className="badge badge-verified">Verified supplier</span>
-            )}
-          </div>
+            </div>
+          )}
 
           <p className="detail-description">{product.description}</p>
 
@@ -153,14 +150,13 @@ function ProductDetail() {
 
           <div className="trust-box">
             <p>
-              <strong>Reviewed listing</strong> means the Maskani team has
-              checked this listing's information.
+              <strong>Every listing is checked</strong> by the Maskani team
+              before it is published.
             </p>
             <p>
-              <strong>Verified supplier</strong> means the supplier has passed
-              all three Maskani checks: phone number confirmed, premises
-              visited, and customer reviews received. The two labels are not the
-              same thing.
+              <strong>Verified supplier</strong> means the supplier has also
+              passed all three Maskani checks: phone number confirmed, premises
+              visited, and customer reviews received.
             </p>
           </div>
         </div>

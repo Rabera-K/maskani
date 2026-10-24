@@ -91,7 +91,6 @@ export const products = [
     dimensions: "210 × 90 × 85 cm",
     materials: "Velvet, hardwood frame",
     colours: "Olive, charcoal, sand",
-    listingReviewed: true,
     featured: true,
   },
   {
@@ -110,7 +109,6 @@ export const products = [
     dimensions: "Custom",
     materials: "Bouclé fabric, hardwood frame",
     colours: "Cream, oat",
-    listingReviewed: true,
     featured: true,
   },
   {
@@ -129,7 +127,6 @@ export const products = [
     dimensions: "70 × 75 × 85 cm",
     materials: "Rattan, cotton cushion",
     colours: "Natural",
-    listingReviewed: false,
     featured: false,
   },
   {
@@ -148,7 +145,6 @@ export const products = [
     dimensions: null,
     materials: "Fabric, hardwood frame",
     colours: "Choice of fabrics",
-    listingReviewed: true,
     featured: true,
   },
   {
@@ -167,7 +163,6 @@ export const products = [
     dimensions: "160 × 230 cm",
     materials: "Sisal",
     colours: "Natural, grey",
-    listingReviewed: true,
     featured: true,
   },
   {
@@ -185,7 +180,6 @@ export const products = [
     dimensions: "160 × 230 cm",
     materials: "Polyester",
     colours: "Cream",
-    listingReviewed: false,
     featured: false,
   },
   {
@@ -203,7 +197,6 @@ export const products = [
     dimensions: "100 cm diameter",
     materials: "Jute",
     colours: "Natural",
-    listingReviewed: true,
     featured: false,
   },
   {
@@ -222,7 +215,6 @@ export const products = [
     dimensions: "25 / 35 / 45 cm diameter",
     materials: "Sisal, dyed raffia",
     colours: "Natural, black and white",
-    listingReviewed: true,
     featured: true,
   },
   {
@@ -241,7 +233,6 @@ export const products = [
     dimensions: "40 – 60 cm tall",
     materials: "Hardwood",
     colours: "Dark walnut stain",
-    listingReviewed: false,
     featured: false,
   },
   {
@@ -260,7 +251,6 @@ export const products = [
     dimensions: "80 cm tall",
     materials: "Resin, stone finish",
     colours: "Stone grey",
-    listingReviewed: false,
     featured: false,
   },
 ];

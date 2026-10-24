@@ -90,7 +90,11 @@ function Catalogue() {
     <div className="catalogue">
       <header className="catalogue-header">
         <h1>{activeCategory ? activeCategory.label : "All products"}</h1>
-        {q && <p className="catalogue-sub">Results for “{q}”</p>}
+        {q && (
+          <p className="catalogue-sub">
+            Every listing is checked by the Maskani team before it is published.
+          </p>
+        )}
       </header>
 
       <button

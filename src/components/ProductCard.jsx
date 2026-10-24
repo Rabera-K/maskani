@@ -16,9 +16,6 @@ function ProductCard({ product }) {
       <div className="product-card-image">
         <ProductImage file={product.images[0]} alt={product.name} />
         <div className="badges">
-          {product.listingReviewed && (
-            <span className="badge">Reviewed listing</span>
-          )}
           {supplier && isVerified(supplier) && (
             <span className="badge badge-verified">Verified supplier</span>
           )}

@@ -9,6 +9,8 @@ import {
   availabilityLabels,
   toTelLink,
   whatsappLink,
+  isVerified,
+  checkLabels,
 } from "../utils";
 import "./ProductDetail.css";
 
@@ -46,6 +48,9 @@ function ProductDetail() {
     .slice(0, 4);
 
   const message = `Hi ${supplier.name}, I found "${product.name}" on Maskani. Is it still available, and can you confirm the price?`;
+  const passedChecks = Object.entries(checkLabels).filter(
+    ([key]) => supplier.checks[key],
+  );
 
   return (
     <div className="detail">
@@ -98,7 +103,7 @@ function ProductDetail() {
             {product.listingReviewed && (
               <span className="badge">Reviewed listing</span>
             )}
-            {supplier.verified && (
+            {isVerified(supplier) && (
               <span className="badge badge-verified">Verified supplier</span>
             )}
           </div>
@@ -119,6 +124,13 @@ function ProductDetail() {
             <h2>{supplier.name}</h2>
             <p className="supplier-location">{supplier.location}</p>
             <p className="supplier-summary">{supplier.summary}</p>
+            {passedChecks.length > 0 && (
+              <ul className="checks">
+                {passedChecks.map(([key, label]) => (
+                  <li key={key}>{label}</li>
+                ))}
+              </ul>
+            )}
 
             <div className="contact-buttons">
               <a
@@ -145,9 +157,10 @@ function ProductDetail() {
               checked this listing's information.
             </p>
             <p>
-              <strong>Verified supplier</strong> means the supplier has also
-              passed Maskani's verification checks. The two are not the same
-              thing.
+              <strong>Verified supplier</strong> means the supplier has passed
+              all three Maskani checks: phone number confirmed, premises
+              visited, and customer reviews received. The two labels are not the
+              same thing.
             </p>
           </div>
         </div>

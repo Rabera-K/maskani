@@ -27,3 +27,12 @@ export function toTelLink(phone) {
 export function whatsappLink(number, message) {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
+export const checkLabels = {
+  phoneConfirmed: "Phone number confirmed",
+  premisesVisited: "Premises visited",
+  customerReviews: "Customer reviews received",
+};
+
+export function isVerified(supplier) {
+  return Object.values(supplier.checks).every(Boolean);
+}

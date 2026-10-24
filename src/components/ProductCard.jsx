@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import ProductImage from "./ProductImage";
-import { formatPrice, getSupplier, availabilityLabels } from "../utils";
+import {
+  formatPrice,
+  getSupplier,
+  availabilityLabels,
+  isVerified,
+} from "../utils";
 import "./ProductCard.css";
 
 function ProductCard({ product }) {
@@ -14,7 +19,7 @@ function ProductCard({ product }) {
           {product.listingReviewed && (
             <span className="badge">Reviewed listing</span>
           )}
-          {supplier?.verified && (
+          {supplier && isVerified(supplier) && (
             <span className="badge badge-verified">Verified supplier</span>
           )}
         </div>

@@ -13,7 +13,11 @@ export const suppliers = [
     location: "Ngong Road, Nairobi",
     phone: "0700000001",
     whatsapp: "254700000001",
-    verified: true,
+    checks: {
+      phoneConfirmed: true,
+      premisesVisited: true,
+      customerReviews: true,
+    },
     summary: "Showroom stocking sofas and armchairs for apartments.",
   },
   {
@@ -22,7 +26,11 @@ export const suppliers = [
     location: "Kiambu Road, Nairobi",
     phone: "0700000002",
     whatsapp: "254700000002",
-    verified: false,
+    checks: {
+      phoneConfirmed: true,
+      premisesVisited: true,
+      customerReviews: false,
+    },
     summary: "Small workshop making furniture and carved décor to order.",
   },
   {
@@ -31,7 +39,11 @@ export const suppliers = [
     location: "Kisumu",
     phone: "0700000003",
     whatsapp: "254700000003",
-    verified: false,
+    checks: {
+      phoneConfirmed: true,
+      premisesVisited: false,
+      customerReviews: false,
+    },
     summary: "Cane and rattan weavers.",
   },
   {
@@ -40,7 +52,11 @@ export const suppliers = [
     location: "Mombasa",
     phone: "0700000004",
     whatsapp: "254700000004",
-    verified: true,
+    checks: {
+      phoneConfirmed: true,
+      premisesVisited: true,
+      customerReviews: true,
+    },
     summary: "Handwoven rugs, mats and baskets from the coast.",
   },
   {
@@ -49,7 +65,11 @@ export const suppliers = [
     location: "Industrial Area, Nairobi",
     phone: "0700000005",
     whatsapp: "254700000005",
-    verified: false,
+    checks: {
+      phoneConfirmed: true,
+      premisesVisited: false,
+      customerReviews: false,
+    },
     summary: "Wholesale and retail rugs and accessories.",
   },
 ];

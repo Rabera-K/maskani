@@ -1,4 +1,13 @@
 import { useState } from "react";
+import { supabase } from "../supabaseClient";
+
+function imageUrl(file, folder) {
+  if (file.includes("/")) {
+    return supabase.storage.from("listing-images").getPublicUrl(file).data
+      .publicUrl;
+  }
+  return `/images/${folder}/${file}`;
+}
 
 function ProductImage({ file, alt, className = "", folder = "products" }) {
   const [failed, setFailed] = useState(!file);
@@ -17,7 +26,7 @@ function ProductImage({ file, alt, className = "", folder = "products" }) {
 
   return (
     <img
-      src={`/images/${folder}/${file}`}
+      src={imageUrl(file, folder)}
       alt={alt}
       className={className}
       loading="lazy"

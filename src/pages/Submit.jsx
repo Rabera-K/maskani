@@ -22,6 +22,7 @@ const emptyForm = {
   location: "",
   phone: "",
   whatsapp: "",
+  website: "",
 };
 
 function isValidKenyanPhone(value) {
@@ -152,6 +153,10 @@ function Submit() {
   async function handleSubmit(e) {
     e.preventDefault();
     setSubmitError("");
+    if (form.website) {
+      setSubmitted(true); // pretend it worked, so bots don't learn anything
+      return;
+    }
 
     const found = validate(form, images);
     setErrors(found);
@@ -225,6 +230,17 @@ function Submit() {
       </header>
 
       <form className="submit-form" onSubmit={handleSubmit} noValidate>
+        <div className="hp-field" aria-hidden="true">
+          <label htmlFor="website">Leave this field empty</label>
+          <input
+            id="website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={handleChange}
+          />
+        </div>
         <fieldset>
           <legend>The product</legend>
 

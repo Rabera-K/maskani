@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
 import ProductImage from "./ProductImage";
-import {
-  formatPrice,
-  getSupplier,
-  availabilityLabels,
-  isVerified,
-} from "../utils";
+import { formatPrice, availabilityLabels, isVerified } from "../utils";
 import "./ProductCard.css";
 
 function ProductCard({ product }) {
-  const supplier = getSupplier(product.supplierId);
+  const supplier = product.supplier;
 
   return (
     <Link to={`/products/${product.slug}`} className="product-card">

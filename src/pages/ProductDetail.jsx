@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductImage from "../components/ProductImage";
 import ProductCard from "../components/ProductCard";
-import { categories, products } from "../data/products";
+import { categories } from "../data/products";
+import { useProducts } from "../ProductsContext";
 import {
   formatPrice,
-  getSupplier,
   availabilityLabels,
   toTelLink,
   whatsappLink,
@@ -16,7 +16,24 @@ import "./ProductDetail.css";
 
 function ProductDetail() {
   const { slug } = useParams();
+  const { products, loading, error } = useProducts();
   const [activeImage, setActiveImage] = useState(0);
+
+  if (loading) {
+    return (
+      <div className="detail-missing">
+        <p>Loading…</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="detail-missing">
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   const product = products.find((p) => p.slug === slug);
 
@@ -32,7 +49,7 @@ function ProductDetail() {
     );
   }
 
-  const supplier = getSupplier(product.supplierId);
+  const supplier = product.supplier;
   const category = categories.find((c) => c.value === product.category);
   const currentImage = product.images[activeImage] ?? product.images[0];
 

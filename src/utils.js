@@ -1,5 +1,3 @@
-import { suppliers } from "./data/products";
-
 export function formatPrice(from, to) {
   if (from == null) return "Price on request";
 
@@ -8,10 +6,6 @@ export function formatPrice(from, to) {
     new Intl.NumberFormat("en-KE", { maximumFractionDigits: 0 }).format(value);
 
   return to ? `${format(from)} – ${format(to)}` : format(from);
-}
-
-export function getSupplier(supplierId) {
-  return suppliers.find((s) => s.id === supplierId);
 }
 
 export const availabilityLabels = {
@@ -34,5 +28,5 @@ export const checkLabels = {
 };
 
 export function isVerified(supplier) {
-  return Object.values(supplier.checks).every(Boolean);
+  return supplier.verified;
 }

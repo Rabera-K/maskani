@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import ProductImage from "../components/ProductImage";
-import { categories, products } from "../data/products";
+import { categories } from "../data/products";
+import { useProducts } from "../ProductsContext";
 import "./Home.css";
 
 const steps = [
@@ -27,7 +28,11 @@ function Home() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  const featured = products.filter((p) => p.featured).slice(0, 4);
+  const { products, loading, error } = useProducts();
+
+  const featuredOnes = products.filter((p) => p.featured).slice(0, 4);
+  const featured =
+    featuredOnes.length > 0 ? featuredOnes : products.slice(0, 4);
 
   function handleSearch(e) {
     e.preventDefault();
@@ -124,7 +129,11 @@ function Home() {
             </Link>
           </div>
 
-          {featured.length > 0 ? (
+          {loading ? (
+            <p className="empty-note">Loading products…</p>
+          ) : error ? (
+            <p className="empty-note">{error}</p>
+          ) : featured.length > 0 ? (
             <div className="product-grid">
               {featured.map((product) => (
                 <ProductCard key={product.id} product={product} />

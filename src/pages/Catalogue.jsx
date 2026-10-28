@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import { categories, products } from "../data/products";
+import { categories } from "../data/products";
+import { useProducts } from "../ProductsContext";
 import "./Catalogue.css";
 
 function matchesSearch(product, query) {
@@ -42,6 +43,7 @@ function matchesBudget(product, min, max) {
 }
 
 function Catalogue() {
+  const { products, loading, error } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
 
@@ -194,27 +196,35 @@ function Catalogue() {
         </aside>
 
         <section>
-          <p className="result-count">
-            Showing {results.length} of {products.length} products
-          </p>
-
-          {results.length > 0 ? (
-            <div className="catalogue-grid">
-              {results.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+          {loading ? (
+            <p className="result-count">Loading products…</p>
+          ) : error ? (
+            <p className="field-error">{error}</p>
           ) : (
-            <div className="empty-state">
-              <h2>No matches found</h2>
-              <p>
-                Try a different keyword, widen your budget, or clear the
-                filters.
+            <>
+              <p className="result-count">
+                Showing {results.length} of {products.length} products
               </p>
-              <button className="clear-btn" onClick={clearFilters}>
-                Clear all filters
-              </button>
-            </div>
+
+              {results.length > 0 ? (
+                <div className="catalogue-grid">
+                  {results.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              ) : (
+                <div className="empty-state">
+                  <h2>No matches found</h2>
+                  <p>
+                    Try a different keyword, widen your budget, or clear the
+                    filters.
+                  </p>
+                  <button className="clear-btn" onClick={clearFilters}>
+                    Clear all filters
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </section>
       </div>

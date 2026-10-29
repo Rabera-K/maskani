@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { categories } from "../data/products";
 import { availabilityLabels } from "../utils";
 import { submitListing } from "../api";
+import { useProducts } from "../ProductsContext";
 import "./Submit.css";
 
 const MAX_IMAGES = 5;
@@ -93,6 +93,7 @@ function Submit() {
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const { categories } = useProducts();
 
   function clearError(name) {
     setErrors((prev) => {

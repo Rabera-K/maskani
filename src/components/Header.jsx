@@ -4,15 +4,9 @@ import { useProducts } from "../ProductsContext";
 import { useSaved } from "../useSaved";
 import "./Header.css";
 
-const categories = [
-  { label: "Sofas & Seating", value: "sofas-seating" },
-  { label: "Rugs & Mats", value: "rugs-mats" },
-  { label: "Décor & Accessories", value: "decor-accessories" },
-];
-
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { products, loading } = useProducts();
+  const { products, categories, loading } = useProducts();
   const { ids } = useSaved();
   const savedCount = loading
     ? ids.length

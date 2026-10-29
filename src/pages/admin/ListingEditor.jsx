@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../supabaseClient";
-import { categories } from "../../data/products";
 import { availabilityLabels } from "../../utils";
+import { useProducts } from "../../ProductsContext";
 
 const PHONE = /^0[17]\d{8}$/;
 const WHATSAPP = /^254[17]\d{8}$/;
@@ -58,6 +58,7 @@ function ListingEditor({ row, onSaved, onClose }) {
   const [productMsg, setProductMsg] = useState(NO_MESSAGE);
   const [supplierMsg, setSupplierMsg] = useState(NO_MESSAGE);
   const [busy, setBusy] = useState(false);
+  const { categories } = useProducts();
 
   function changeProduct(e) {
     const { name, value, type, checked } = e.target;

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import ProductImage from "../components/ProductImage";
-import { categories } from "../data/products";
 import { useProducts } from "../ProductsContext";
 import "./Home.css";
 
@@ -28,7 +27,7 @@ function Home() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  const { products, loading, error } = useProducts();
+  const { products, categories, loading, error } = useProducts();
 
   const featuredOnes = products.filter((p) => p.featured).slice(0, 4);
   const featured =

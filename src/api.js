@@ -102,3 +102,15 @@ export async function submitListing(listing) {
   });
   if (error) throw error;
 }
+export async function fetchCategories() {
+  const { data, error } = await supabase
+    .from("categories")
+    .select("slug, label, image, sort_order")
+    .order("sort_order")
+    .order("label");
+
+  if (error) throw error;
+
+  // keep the same field names the components already use
+  return data.map((c) => ({ value: c.slug, label: c.label, image: c.image }));
+}

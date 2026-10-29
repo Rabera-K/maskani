@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductImage from "../components/ProductImage";
 import ProductCard from "../components/ProductCard";
-import { categories } from "../data/products";
 import { useProducts } from "../ProductsContext";
 import {
   formatPrice,
@@ -19,6 +18,7 @@ function ProductDetail() {
   const { slug } = useParams();
   const { products, loading, error } = useProducts();
   const [activeImage, setActiveImage] = useState(0);
+  const { categories } = useProducts();
 
   if (loading) {
     return (
@@ -76,7 +76,7 @@ function ProductDetail() {
         <Link to="/products">All products</Link>
         <span>/</span>
         <Link to={`/products?category=${product.category}`}>
-          {category.label}
+          {category?.label}
         </Link>
       </nav>
 
@@ -106,7 +106,7 @@ function ProductDetail() {
         </div>
 
         <div className="detail-info">
-          <p className="eyebrow eyebrow-dark">{category.label}</p>
+          <p className="eyebrow eyebrow-dark">{category?.label}</p>
           <h1>{product.name}</h1>
           <p className="detail-price">
             {formatPrice(product.priceFrom, product.priceTo)}
@@ -187,7 +187,7 @@ function ProductDetail() {
 
       {related.length > 0 && (
         <section className="related">
-          <h2>More in {category.label}</h2>
+          <h2>More in {category?.label}</h2>
           <div className="related-grid">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} />

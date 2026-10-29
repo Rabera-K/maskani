@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import { categories } from "../data/products";
 import { useProducts } from "../ProductsContext";
 import "./Catalogue.css";
 
-function matchesSearch(product, query) {
+function matchesSearch(product, query, categories) {
   if (!query) return true;
   const categoryLabel = categories.find(
     (c) => c.value === product.category,
@@ -43,7 +42,7 @@ function matchesBudget(product, min, max) {
 }
 
 function Catalogue() {
-  const { products, loading, error } = useProducts();
+  const { products, categories, loading, error } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
 
@@ -70,7 +69,7 @@ function Catalogue() {
   let results = products.filter(
     (p) =>
       (!category || p.category === category) &&
-      matchesSearch(p, q) &&
+      matchesSearch(p, q, categories) &&
       matchesBudget(p, min, max),
   );
 

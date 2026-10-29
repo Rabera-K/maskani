@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../supabaseClient";
-import { categories } from "../../data/products";
 import { availabilityLabels } from "../../utils";
+import { useProducts } from "../../ProductsContext";
 
 function photoUrl(path) {
   return supabase.storage.from("listing-images").getPublicUrl(path).data
@@ -54,6 +54,7 @@ function SubmissionCard({ submission, onDone }) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const { categories } = useProducts();
 
   function handleChange(e) {
     const { name, value } = e.target;

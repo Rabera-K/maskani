@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useProducts } from "../ProductsContext";
 import "./Footer.css";
 
 function Footer() {
+  const { categories } = useProducts();
   return (
     <footer className="footer">
       <div className="footer-grid">
@@ -18,11 +20,11 @@ function Footer() {
         <div className="footer-links">
           <p className="footer-heading">Explore</p>
           <Link to="/products">All products</Link>
-          <Link to="/products?category=sofas-seating">Sofas &amp; Seating</Link>
-          <Link to="/products?category=rugs-mats">Rugs &amp; Mats</Link>
-          <Link to="/products?category=decor-accessories">
-            Décor &amp; Accessories
-          </Link>
+          {categories.map((c) => (
+            <Link key={c.value} to={`/products?category=${c.value}`}>
+              {c.label}
+            </Link>
+          ))}
         </div>
 
         <div className="footer-links">

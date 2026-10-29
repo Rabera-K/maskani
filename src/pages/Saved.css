@@ -1,0 +1,140 @@
+.saved {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.saved h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.saved-intro {
+  margin: 16px 0 36px;
+  max-width: 36rem;
+  line-height: 1.7;
+  color: rgb(94 24 3 / 0.8);
+}
+
+.saved-empty {
+  margin-top: 24px;
+  max-width: 28rem;
+  line-height: 1.7;
+}
+
+.saved-browse {
+  display: inline-block;
+  margin-top: 24px;
+}
+
+.saved-group {
+  margin-bottom: 36px;
+  padding: 24px;
+  border: 1px solid rgb(94 24 3 / 0.2);
+}
+
+.saved-group-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.saved-group-head h2 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.saved-location {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.saved-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.saved-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgb(94 24 3 / 0.15);
+}
+
+.saved-thumb {
+  flex: none;
+  width: 72px;
+  height: 90px;
+  overflow: hidden;
+  background: var(--rusk);
+}
+
+.saved-thumb img,
+.saved-thumb .img-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.saved-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.saved-item-info h3 {
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.saved-item-info p {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.saved-remove {
+  background: none;
+  border: none;
+  border-bottom: 1px solid currentColor;
+  padding: 0 0 2px;
+  color: var(--pipe);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.saved-clear {
+  padding: 13px 20px;
+  background: transparent;
+  border: 1px solid #b3261e;
+  color: #b3261e;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.saved-note {
+  margin: 16px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgb(94 24 3 / 0.65);
+}
+
+@media (min-width: 640px) {
+  .saved-group-head {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

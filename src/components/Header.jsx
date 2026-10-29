@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useProducts } from "../ProductsContext";
+import { useSaved } from "../useSaved";
 import "./Header.css";
 
 const categories = [
@@ -10,6 +12,11 @@ const categories = [
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { products, loading } = useProducts();
+  const { ids } = useSaved();
+  const savedCount = loading
+    ? ids.length
+    : products.filter((p) => ids.includes(p.id)).length;
 
   return (
     <>
@@ -31,6 +38,14 @@ function Header() {
           </nav>
 
           <div className="header-actions">
+            <Link
+              to="/saved"
+              className="saved-link"
+              aria-label={`Enquiry list, ${savedCount} saved`}
+            >
+              Saved
+              <span className="saved-count">{savedCount}</span>
+            </Link>
             <Link to="/submit" className="btn-outline">
               List your product
             </Link>

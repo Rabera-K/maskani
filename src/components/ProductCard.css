@@ -1,4 +1,8 @@
 .product-card {
+  position: relative;
+}
+
+.product-card-link {
   display: block;
 }
 

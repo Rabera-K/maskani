@@ -12,6 +12,7 @@ import {
   isVerified,
   checkLabels,
 } from "../utils";
+import SaveButton from "../components/SaveButton";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -163,6 +164,11 @@ function ProductDetail() {
               Always confirm the price and availability with the supplier before
               you visit or pay. Maskani doesn't handle payments or delivery.
             </p>
+            <SaveButton
+              productId={product.id}
+              name={product.name}
+              variant="text"
+            />
           </div>
 
           <div className="trust-box">

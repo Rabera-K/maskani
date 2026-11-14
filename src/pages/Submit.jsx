@@ -215,6 +215,9 @@ function Submit() {
             clarity before it goes live. We'll contact you on {form.phone} if we
             need anything.
           </p>
+          <p>
+            <Link to="/feedback?from=/submit">Tell us how that was →</Link>
+          </p>
           <button className="btn-solid-dark submit-button" onClick={resetForm}>
             Submit another product
           </button>

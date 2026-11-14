@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useProducts } from "../ProductsContext";
 import "./Footer.css";
 
 function Footer() {
   const { categories } = useProducts();
+  const { pathname } = useLocation();
   return (
     <footer className="footer">
       <div className="footer-grid">
@@ -39,8 +40,14 @@ function Footer() {
 
       <div className="footer-bottom">
         <span>© 2026 Maskani</span>
-        <span>Made for homes across Kenya</span>
-        <Link to="/privacy">Privacy</Link>
+        <span className="footer-legal">
+          <Link to="/about">About</Link>
+          <Link to={`/feedback?from=${encodeURIComponent(pathname)}`}>
+            Feedback
+          </Link>
+          <Link to="/terms">Terms</Link>
+          <Link to="/privacy">Privacy</Link>
+        </span>
       </div>
     </footer>
   );

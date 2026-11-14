@@ -7,7 +7,9 @@ import Submit from "./pages/Submit";
 import Saved from "./pages/Saved";
 import Categories from "./pages/Categories";
 import Privacy from "./pages/Privacy";
-
+import Terms from "./pages/Terms";
+import About from "./pages/About";
+import Feedback from "./pages/Feedback";
 import { lazy, Suspense } from "react";
 
 const Admin = lazy(() => import("./pages/admin/Admin"));
@@ -23,6 +25,9 @@ function App() {
         <Route path="/saved" element={<Saved />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/feedback" element={<Feedback />} />
         <Route
           path="/admin"
           element={

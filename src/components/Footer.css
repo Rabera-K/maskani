@@ -72,6 +72,11 @@
   text-transform: uppercase;
   color: rgb(247 243 235 / 0.45);
 }
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
 
 @media (min-width: 768px) {
   .footer-grid {

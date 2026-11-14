@@ -3,6 +3,7 @@ import { supabase } from "../../supabaseClient";
 import Login from "./Login";
 import Submissions from "./Submissions";
 import Listings from "./Listings";
+import FeedbackInbox from "./FeedbackInbox";
 import "./Admin.css";
 
 function Admin() {
@@ -86,9 +87,21 @@ function Admin() {
         >
           Listings
         </button>
+        <button
+          className={tab === "feedback" ? "active" : ""}
+          onClick={() => setTab("feedback")}
+        >
+          Feedback
+        </button>
       </div>
 
-      {tab === "submissions" ? <Submissions /> : <Listings />}
+      {tab === "submissions" ? (
+        <Submissions />
+      ) : tab === "listings" ? (
+        <Listings />
+      ) : (
+        <FeedbackInbox />
+      )}
     </div>
   );
 }

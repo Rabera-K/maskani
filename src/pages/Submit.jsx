@@ -197,7 +197,8 @@ function Submit() {
       await submitListing(listing);
       setSubmitted(true);
       window.scrollTo(0, 0);
-    } catch {
+    } catch (err) {
+      console.error(err);
       setSubmitError("Something went wrong. Please try again.");
     } finally {
       setSending(false);
@@ -577,7 +578,8 @@ function Submit() {
               I agree that my business name, location, phone and WhatsApp
               numbers, and the product details and photos I've submitted, will
               be shown publicly on Maskani, and that Maskani may contact me
-              about this listing. I have read the{" "}
+              about this listing. I confirm that I own these photos or have
+              permission to use them. I have read the{" "}
               <Link to="/privacy" target="_blank" rel="noreferrer">
                 Privacy Policy
               </Link>

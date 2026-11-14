@@ -99,8 +99,17 @@ export async function submitListing(listing) {
     phone: listing.phone,
     whatsapp: listing.whatsapp,
     image_paths: paths,
+    consent_at: new Date().toISOString(),
   });
-  if (error) throw error;
+  if (error) {
+    console.error(
+      "Submission rejected:",
+      error.message,
+      error.details,
+      error.hint,
+    );
+    throw error;
+  }
 }
 export async function fetchCategories() {
   const { data, error } = await supabase

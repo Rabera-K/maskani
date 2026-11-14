@@ -112,6 +112,7 @@ function Listings() {
                 <p className="admin-row-meta">
                   {row.supplier?.name} ·{" "}
                   {formatPrice(row.price_from, row.price_to)}
+                  {row.is_sample && " · sample"}
                 </p>
                 <span className={`admin-status admin-status-${row.status}`}>
                   {row.status}

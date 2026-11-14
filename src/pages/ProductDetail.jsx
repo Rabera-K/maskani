@@ -79,7 +79,12 @@ function ProductDetail() {
           {category?.label}
         </Link>
       </nav>
-
+      {product.isSample && (
+        <p className="sample-banner">
+          Sample listing: Maskani is in preview, and this product and supplier
+          are for demonstration only.
+        </p>
+      )}
       <div className="detail-layout">
         <div className="gallery">
           <div className="gallery-main">

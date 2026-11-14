@@ -18,6 +18,7 @@ function toProduct(row) {
     colours: row.colours,
     featured: row.featured,
     location: s.location,
+    isSample: row.is_sample,
     supplier: {
       id: s.id,
       name: s.name,

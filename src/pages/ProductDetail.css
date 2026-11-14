@@ -256,3 +256,10 @@
   font-weight: 700;
   color: var(--sage);
 }
+.sample-banner {
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: rgb(204 185 153 / 0.4);
+  font-size: 13px;
+  line-height: 1.6;
+}

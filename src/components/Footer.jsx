@@ -40,6 +40,7 @@ function Footer() {
       <div className="footer-bottom">
         <span>© 2026 Maskani</span>
         <span>Made for homes across Kenya</span>
+        <Link to="/privacy">Privacy</Link>
       </div>
     </footer>
   );

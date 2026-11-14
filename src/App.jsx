@@ -6,6 +6,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Submit from "./pages/Submit";
 import Saved from "./pages/Saved";
 import Categories from "./pages/Categories";
+import Privacy from "./pages/Privacy";
 
 import { lazy, Suspense } from "react";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/submit" element={<Submit />} />
         <Route path="/saved" element={<Saved />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route
           path="/admin"
           element={

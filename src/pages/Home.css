@@ -30,7 +30,7 @@
 
 .eyebrow {
   margin-bottom: 18px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -305,7 +305,7 @@
 }
 
 .step-number {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   color: var(--rusk);
 }

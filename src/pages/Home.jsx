@@ -32,6 +32,7 @@ function Home() {
   const featuredOnes = products.filter((p) => p.featured).slice(0, 4);
   const featured =
     featuredOnes.length > 0 ? featuredOnes : products.slice(0, 4);
+  const homeCategories = categories.filter((c) => c.showOnHome);
 
   function handleSearch(e) {
     e.preventDefault();
@@ -88,7 +89,7 @@ function Home() {
           </div>
 
           <div className="category-grid">
-            {categories.map((cat) => (
+            {homeCategories.map((cat) => (
               <Link
                 key={cat.value}
                 to={`/products?category=${cat.value}`}
@@ -113,6 +114,15 @@ function Home() {
               </Link>
             ))}
           </div>
+          {categories.length > homeCategories.length && (
+            <Link
+              className="text-link"
+              to="/categories"
+              style={{ marginTop: 32 }}
+            >
+              Explore all categories →
+            </Link>
+          )}
         </div>
       </section>
 

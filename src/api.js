@@ -105,12 +105,17 @@ export async function submitListing(listing) {
 export async function fetchCategories() {
   const { data, error } = await supabase
     .from("categories")
-    .select("slug, label, image, sort_order")
+    .select("slug, label, image, sort_order, show_on_home")
     .order("sort_order")
     .order("label");
 
   if (error) throw error;
 
   // keep the same field names the components already use
-  return data.map((c) => ({ value: c.slug, label: c.label, image: c.image }));
+  return data.map((c) => ({
+    value: c.slug,
+    label: c.label,
+    image: c.image,
+    showOnHome: c.show_on_home,
+  }));
 }

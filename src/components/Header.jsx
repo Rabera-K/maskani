@@ -8,6 +8,9 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { products, categories, loading } = useProducts();
   const { ids } = useSaved();
+  const MAX_NAV = 4;
+  const navCategories = categories.slice(0, MAX_NAV);
+  const moreCategories = categories.slice(MAX_NAV);
   const savedCount = loading
     ? ids.length
     : products.filter((p) => ids.includes(p.id)).length;
@@ -24,11 +27,31 @@ function Header() {
           </Link>
 
           <nav className="nav-desktop">
-            {categories.map((cat) => (
+            {navCategories.map((cat) => (
               <Link key={cat.value} to={`/products?category=${cat.value}`}>
                 {cat.label}
               </Link>
             ))}
+            {moreCategories.length > 0 && (
+              <details className="nav-more">
+                <summary>More</summary>
+                <div className="nav-more-menu">
+                  {moreCategories.map((cat) => (
+                    <Link
+                      key={cat.value}
+                      to={`/products?category=${cat.value}`}
+                      onClick={(e) =>
+                        e.currentTarget
+                          .closest("details")
+                          .removeAttribute("open")
+                      }
+                    >
+                      {cat.label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+            )}
           </nav>
 
           <div className="header-actions">
@@ -64,6 +87,7 @@ function Header() {
                 {cat.label}
               </Link>
             ))}
+
             <Link
               to="/submit"
               className="btn-solid"

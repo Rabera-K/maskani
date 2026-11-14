@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { availabilityLabels } from "../utils";
 import { submitListing } from "../api";
 import { useProducts } from "../ProductsContext";
@@ -23,6 +24,7 @@ const emptyForm = {
   phone: "",
   whatsapp: "",
   website: "",
+  consent: false,
 };
 
 function isValidKenyanPhone(value) {
@@ -67,6 +69,7 @@ function validate(form, images) {
   if (form.whatsapp.trim() && !isValidKenyanPhone(form.whatsapp)) {
     errors.whatsapp = "Enter a valid Kenyan number, or leave this blank.";
   }
+  if (!form.consent) errors.consent = "Please tick the box to continue.";
 
   return errors;
 }
@@ -105,8 +108,11 @@ function Submit() {
   }
 
   function handleChange(e) {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
     clearError(name);
   }
 
@@ -555,6 +561,28 @@ function Submit() {
             </Field>
           </div>
         </fieldset>
+        <div className="consent">
+          <label>
+            <input
+              type="checkbox"
+              name="consent"
+              checked={form.consent}
+              onChange={handleChange}
+              aria-invalid={!!errors.consent}
+            />
+            <span>
+              I agree that my business name, location, phone and WhatsApp
+              numbers, and the product details and photos I've submitted, will
+              be shown publicly on Maskani, and that Maskani may contact me
+              about this listing. I have read the{" "}
+              <Link to="/privacy" target="_blank" rel="noreferrer">
+                Privacy Policy
+              </Link>
+              .
+            </span>
+          </label>
+          {errors.consent && <p className="field-error">{errors.consent}</p>}
+        </div>
 
         {Object.keys(errors).length > 0 && (
           <p className="field-error">

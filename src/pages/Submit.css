@@ -186,3 +186,26 @@ textarea.field-input {
   position: absolute;
   left: -9999px;
 }
+
+.consent {
+  margin-bottom: 24px;
+}
+
+.consent label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.consent input {
+  margin-top: 5px;
+  flex: none;
+}
+
+.consent a {
+  border-bottom: 1px solid currentColor;
+  font-weight: 700;
+}

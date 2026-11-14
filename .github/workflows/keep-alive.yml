@@ -1,0 +1,19 @@
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: "15 6 * * *" # 09:15 Kenya time, daily
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send read-only request to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            "$SUPABASE_URL/rest/v1/categories?select=slug&limit=1" \
+            -H "apikey: $SUPABASE_KEY"

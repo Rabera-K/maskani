@@ -213,14 +213,21 @@ function Catalogue() {
                 </div>
               ) : (
                 <div className="empty-state">
-                  <h2>No matches found</h2>
+                  <h2>
+                    {products.length === 0
+                      ? "The catalogue is just getting started"
+                      : "No matches found"}
+                  </h2>
                   <p>
-                    Try a different keyword, widen your budget, or clear the
-                    filters.
+                    {products.length === 0
+                      ? "New listings are added as suppliers join. Check back soon."
+                      : "Try a different keyword, widen your budget, or clear the filters."}
                   </p>
-                  <button className="clear-btn" onClick={clearFilters}>
-                    Clear all filters
-                  </button>
+                  {products.length > 0 && (
+                    <button className="clear-btn" onClick={clearFilters}>
+                      Clear all filters
+                    </button>
+                  )}
                 </div>
               )}
             </>

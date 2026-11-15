@@ -1,0 +1,51 @@
+.report {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  line-height: 1.7;
+}
+
+.report h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.report-product {
+  margin: 14px 0 28px;
+}
+
+.report-group {
+  margin: 0 0 24px;
+  padding: 0;
+  border: none;
+}
+
+.report-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.report-option input {
+  margin-top: 6px;
+}
+
+.report-submit {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.report-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.report-back {
+  display: inline-block;
+  margin-top: 24px;
+}

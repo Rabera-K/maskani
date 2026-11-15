@@ -263,3 +263,12 @@
   font-size: 13px;
   line-height: 1.6;
 }
+.report-link {
+  margin-top: 16px;
+  font-size: 12px;
+}
+
+.report-link a {
+  border-bottom: 1px solid currentColor;
+  color: rgb(94 24 3 / 0.7);
+}

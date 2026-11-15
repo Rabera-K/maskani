@@ -4,7 +4,9 @@ function Terms() {
   return (
     <div className="legal">
       <h1>Terms of Use</h1>
-      <p className="legal-date">Last updated: [14th November, 2026]</p>
+      <p className="legal-date">
+        Last updated: <b>14th November, 2026</b>
+      </p>
 
       <p>
         These terms explain how Maskani works and what you can expect from it,
@@ -50,15 +52,15 @@ function Terms() {
         </li>
       </ul>
       <p>
-        You allow Maskani to display your listing and photos on the site [and in
-        our promotion of the platform]. We may edit a listing for clarity,
+        You allow Maskani to display your listing and photos on the site and in
+        our promotion of the platform. We may edit a listing for clarity,
         decline it, or remove it at any time, for example if it is inaccurate,
         misleading or breaks these terms. You can ask us to remove your listing
         at any time by contacting us.
       </p>
       <p>
-        Listing is currently [free]. If we introduce fees, we will tell
-        suppliers [in advance] and you can choose to leave.
+        Listing is currently <b>FREE</b>. If we introduce fees, we will tell
+        suppliers in advance and you can choose to leave.
       </p>
       <p>
         You are responsible for your own dealings with buyers, including
@@ -94,7 +96,8 @@ function Terms() {
       <h2>Reporting a problem</h2>
       <p>
         If you see a listing that is inaccurate, misleading or infringes your
-        rights, contact us at [maskaniliving@gmail.com] and we will look into it
+        rights, use the "Report this listing" link on any listing or contact us
+        at <strong>maskaniliving@gmail.com</strong> and we will look into it
         promptly.
       </p>
 

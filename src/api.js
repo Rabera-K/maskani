@@ -133,3 +133,7 @@ export async function submitFeedback(feedback) {
   const { error } = await supabase.from("feedback").insert(feedback);
   if (error) throw error;
 }
+export async function submitReport(report) {
+  const { error } = await supabase.from("reports").insert(report);
+  if (error) throw error;
+}

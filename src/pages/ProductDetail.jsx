@@ -187,6 +187,9 @@ function ProductDetail() {
               visited, and customer reviews received.
             </p>
           </div>
+          <p className="report-link">
+            <Link to={`/report/${product.slug}`}>Report this listing</Link>
+          </p>
         </div>
       </div>
 

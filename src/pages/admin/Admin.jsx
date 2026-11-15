@@ -4,6 +4,7 @@ import Login from "./Login";
 import Submissions from "./Submissions";
 import Listings from "./Listings";
 import FeedbackInbox from "./FeedbackInbox";
+import Reports from "./Reports";
 import "./Admin.css";
 
 function Admin() {
@@ -93,15 +94,18 @@ function Admin() {
         >
           Feedback
         </button>
+        <button
+          className={tab === "reports" ? "active" : ""}
+          onClick={() => setTab("reports")}
+        >
+          Reports
+        </button>
       </div>
 
-      {tab === "submissions" ? (
-        <Submissions />
-      ) : tab === "listings" ? (
-        <Listings />
-      ) : (
-        <FeedbackInbox />
-      )}
+      {tab === "submissions" && <Submissions />}
+      {tab === "listings" && <Listings />}
+      {tab === "feedback" && <FeedbackInbox />}
+      {tab === "reports" && <Reports />}
     </div>
   );
 }
